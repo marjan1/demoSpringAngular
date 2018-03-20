@@ -1,4 +1,4 @@
-package com.shekhargulati.app;
+package nl.datavisual;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
