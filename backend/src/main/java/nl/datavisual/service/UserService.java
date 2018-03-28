@@ -29,7 +29,8 @@ public class UserService {
         UserSpecificationsBuilder userSpecificationsBuilder = new UserSpecificationsBuilder()
                 .with("email", ":", email)
                 .with("name", ":", name)
-                .with("username", ":", username);
+                .with("username", ":", username)
+                .with("statusCode", "<", statusCode);
 
         List<User> users = userRepository.findAll(userSpecificationsBuilder.build()).stream()
                 .map(user -> modelMapper.map(user, User.class)).collect(Collectors.toList());

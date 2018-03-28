@@ -59,8 +59,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
     public int getStatusCode() {
-        return this.statusCode;
+        return statusCode;
     }
 
     public void setStatusCode(int statusCode) {

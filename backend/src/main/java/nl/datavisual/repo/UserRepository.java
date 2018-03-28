@@ -7,6 +7,9 @@ import org.springframework.data.repository.CrudRepository;
 public interface UserRepository extends CrudRepository<User, Long>, JpaSpecificationExecutor<User> {
     User findByNameContains(String name);
 
+
+    User findFirstByUsernameIsNull();
+
 //    @Query("select u from User u where u.firstname like %?1")
 //    List<User> findByFirstnameEndsWith(String firstname);
 //
