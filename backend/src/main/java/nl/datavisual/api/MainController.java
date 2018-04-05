@@ -1,6 +1,6 @@
 package nl.datavisual.api;
 
-import nl.datavisual.repo.UserRepository;
+import nl.datavisual.domain.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

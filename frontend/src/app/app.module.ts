@@ -8,7 +8,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { AppRoutingModule } from './app.routing.module';
 import {UserService} from './service/user.service';
 import {CompanyService} from './service/company.service';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from '@angular/common/http/';
 
 @NgModule({
   declarations: [

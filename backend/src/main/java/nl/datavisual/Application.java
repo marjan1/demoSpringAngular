@@ -1,5 +1,8 @@
 package nl.datavisual;
 
+import nl.datavisual.domain.entity.User;
+import nl.datavisual.domain.repo.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,6 +17,7 @@ import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import java.lang.reflect.Method;
+import java.util.List;
 
 @SpringBootApplication
 public class Application {
@@ -21,8 +25,11 @@ public class Application {
     @Value("${rest.api.base.path}")
     private String restApiBasePath;
 
+
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+
     }
 
     @Bean

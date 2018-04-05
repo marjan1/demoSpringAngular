@@ -1,6 +1,6 @@
 package nl.datavisual.spec;
 
-import nl.datavisual.entity.User;
+import nl.datavisual.domain.entity.User;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.CriteriaBuilder;

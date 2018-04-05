@@ -1,4 +1,4 @@
-import {CompanyDTO} from "./company.model";
+import {CompanyDTO} from './company.model';
 
 export class User {
 

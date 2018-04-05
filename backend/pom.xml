@@ -63,6 +63,29 @@
         </dependency>
 
         <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>test</scope>
+            <version>1.4.194</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.easymock/easymock -->
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymock</artifactId>
+            <version>3.5.1</version>
+            <scope>test</scope>
+        </dependency>
+
+
+
+        <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-jpa</artifactId>
             <version>${querydsl.version}</version>

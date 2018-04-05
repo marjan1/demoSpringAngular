@@ -1,7 +1,8 @@
 package nl.datavisual.service;
 
+import nl.datavisual.domain.entity.OrganizationSubunit;
+import nl.datavisual.domain.repo.UserRepository;
 import nl.datavisual.dto.User;
-import nl.datavisual.repo.UserRepository;
 import nl.datavisual.spec.bilder.UserSpecificationsBuilder;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -32,19 +33,31 @@ public class UserService {
                 .with("username", ":", username)
                 .with("statusCode", "<", statusCode);
 
-        List<User> users = userRepository.findAll(userSpecificationsBuilder.build()).stream()
-                .map(user -> modelMapper.map(user, User.class)).collect(Collectors.toList());
+        List<User> users = null;
+//                userRepository.findAll(userSpecificationsBuilder.build()).stream()
+//                .map(user -> modelMapper.map(user, User.class)).collect(Collectors.toList());
         return users;
+    }
+
+    public List<OrganizationSubunit> getAllOrganizationSubunitsForUserByUsername(String username) {
+        log.debug("Get all organizational subunits for user by username ={}", username);
+        return userRepository.getAllOrganizationSubunitsForUserByUsername(username);
+    }
+
+    public List<User> getAllUsersByEmailPart(String emailPart) {
+        log.debug("Get user by email that contains [{}]", emailPart);
+        return userRepository.findUsersByEmailPart(emailPart).stream()
+                .map(user -> modelMapper.map(user, User.class)).collect(Collectors.toList());
     }
 
     public User create(User user) {
 
-        final nl.datavisual.entity.User savedUser = userRepository.save(modelMapper.map(user, nl.datavisual.entity.User.class));
+        final nl.datavisual.domain.entity.User savedUser = userRepository.save(modelMapper.map(user, nl.datavisual.domain.entity.User.class));
         return modelMapper.map(savedUser, User.class);
     }
 
     public User delete(long id) {
-        nl.datavisual.entity.User user = userRepository.findOne(id);
+        nl.datavisual.domain.entity.User user = userRepository.findOne(id);
         if (user != null) {
             userRepository.delete(user);
         }
@@ -63,7 +76,7 @@ public class UserService {
 
     public User update(User user) {
         if (userRepository.exists(user.getIdUsers())) {
-            userRepository.save(modelMapper.map(user, nl.datavisual.entity.User.class));
+            userRepository.save(modelMapper.map(user, nl.datavisual.domain.entity.User.class));
         }
         return modelMapper.map(user, User.class);
     }

@@ -1,4 +1,4 @@
-package nl.datavisual.entity;
+package nl.datavisual.domain.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;

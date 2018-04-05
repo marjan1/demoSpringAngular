@@ -1,4 +1,4 @@
-package nl.datavisual.entity;
+package nl.datavisual.domain.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -40,10 +40,10 @@ public class Company implements Serializable {
 
     //bi-directional many-to-one association to OrganisationUnitDTO
     @OneToMany(mappedBy = "company")
-    private List<OrganisationUnit> organisationUnits;
+    private List<OrganizationUnit> organizationUnits;
 
     //bi-directional many-to-one association to User
-    @OneToMany(mappedBy = "company")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "company")
     private List<User> users;
 
     public Company() {
@@ -115,26 +115,26 @@ public class Company implements Serializable {
         this.statusCode = statusCode;
     }
 
-    public List<OrganisationUnit> getOrganisationUnits() {
-        return this.organisationUnits;
+    public List<OrganizationUnit> getOrganizationUnits() {
+        return this.organizationUnits;
     }
 
-    public void setOrganisationUnits(List<OrganisationUnit> organisationUnits) {
-        this.organisationUnits = organisationUnits;
+    public void setOrganizationUnits(List<OrganizationUnit> organizationUnits) {
+        this.organizationUnits = organizationUnits;
     }
 
-    public OrganisationUnit addOrganisationUnit(OrganisationUnit organisationUnit) {
-        getOrganisationUnits().add(organisationUnit);
-        organisationUnit.setCompany(this);
+    public OrganizationUnit addOrganisationUnit(OrganizationUnit organizationUnit) {
+        getOrganizationUnits().add(organizationUnit);
+        organizationUnit.setCompany(this);
 
-        return organisationUnit;
+        return organizationUnit;
     }
 
-    public OrganisationUnit removeOrganisationUnit(OrganisationUnit organisationUnit) {
-        getOrganisationUnits().remove(organisationUnit);
-        organisationUnit.setCompany(null);
+    public OrganizationUnit removeOrganisationUnit(OrganizationUnit organizationUnit) {
+        getOrganizationUnits().remove(organizationUnit);
+        organizationUnit.setCompany(null);
 
-        return organisationUnit;
+        return organizationUnit;
     }
 
     public List<User> getUsers() {

@@ -1,4 +1,4 @@
-package nl.datavisual.entity;
+package nl.datavisual.domain.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -54,7 +54,7 @@ public class Document implements Serializable {
     //bi-directional many-to-one association to OrganisationSubunitDTO
     @ManyToOne
     @JoinColumn(name = "org_subunit_id")
-    private OrganisationSubunit organisationSubunit;
+    private OrganizationSubunit organizationSubunit;
 
     //bi-directional many-to-one association to CollaboratorDTO
     @ManyToOne
@@ -169,12 +169,12 @@ public class Document implements Serializable {
         this.statusCode = statusCode;
     }
 
-    public OrganisationSubunit getOrganisationSubunit() {
-        return this.organisationSubunit;
+    public OrganizationSubunit getOrganizationSubunit() {
+        return organizationSubunit;
     }
 
-    public void setOrganisationSubunit(OrganisationSubunit organisationSubunit) {
-        this.organisationSubunit = organisationSubunit;
+    public void setOrganizationSubunit(OrganizationSubunit organizationSubunit) {
+        this.organizationSubunit = organizationSubunit;
     }
 
     public Collaborator getCollaborator() {

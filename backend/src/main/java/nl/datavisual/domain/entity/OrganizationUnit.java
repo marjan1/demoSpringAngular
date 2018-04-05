@@ -1,4 +1,4 @@
-package nl.datavisual.entity;
+package nl.datavisual.domain.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,9 +11,9 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name = "organisation_units")
-@NamedQuery(name = "OrganisationUnit.findAll", query = "SELECT o FROM OrganisationUnit o")
-public class OrganisationUnit implements Serializable {
+@Table(name = "organization_units")
+@NamedQuery(name = "OrganizationUnit.findAll", query = "SELECT o FROM OrganizationUnit o")
+public class OrganizationUnit implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -30,15 +30,15 @@ public class OrganisationUnit implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to OrganisationSubunitDTO
-	@OneToMany(mappedBy = "organisationUnit")
-	private List<OrganisationSubunit> organisationSubunits;
+	@OneToMany(mappedBy = "organizationUnit")
+	private List<OrganizationSubunit> organizationSubunits;
 
 	//bi-directional many-to-one association to CompanyDTO
 	@ManyToOne
 	@JoinColumn(name = "company_id")
 	private Company company;
 
-	public OrganisationUnit() {
+	public OrganizationUnit() {
 	}
 
 	public int getIdOrgUnits() {
@@ -73,26 +73,26 @@ public class OrganisationUnit implements Serializable {
 		this.name = name;
 	}
 
-	public List<OrganisationSubunit> getOrganisationSubunits() {
-		return this.organisationSubunits;
+	public List<OrganizationSubunit> getOrganizationSubunits() {
+		return this.organizationSubunits;
 	}
 
-	public void setOrganisationSubunits(List<OrganisationSubunit> organisationSubunits) {
-		this.organisationSubunits = organisationSubunits;
+	public void setOrganizationSubunits(List<OrganizationSubunit> organizationSubunits) {
+		this.organizationSubunits = organizationSubunits;
 	}
 
-	public OrganisationSubunit addOrganisationSubunit(OrganisationSubunit organisationSubunit) {
-		getOrganisationSubunits().add(organisationSubunit);
-		organisationSubunit.setOrganisationUnit(this);
+	public OrganizationSubunit addOrganisationSubunit(OrganizationSubunit organizationSubunit) {
+		getOrganizationSubunits().add(organizationSubunit);
+		organizationSubunit.setOrganizationUnit(this);
 
-		return organisationSubunit;
+		return organizationSubunit;
 	}
 
-	public OrganisationSubunit removeOrganisationSubunit(OrganisationSubunit organisationSubunit) {
-		getOrganisationSubunits().remove(organisationSubunit);
-		organisationSubunit.setOrganisationUnit(null);
+	public OrganizationSubunit removeOrganisationSubunit(OrganizationSubunit organizationSubunit) {
+		getOrganizationSubunits().remove(organizationSubunit);
+		organizationSubunit.setOrganizationUnit(null);
 
-		return organisationSubunit;
+		return organizationSubunit;
 	}
 
 	public Company getCompany() {

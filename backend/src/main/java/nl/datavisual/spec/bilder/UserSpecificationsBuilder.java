@@ -1,6 +1,6 @@
 package nl.datavisual.spec.bilder;
 
-import nl.datavisual.entity.User;
+import nl.datavisual.domain.entity.User;
 import nl.datavisual.spec.SearchCriteria;
 import nl.datavisual.spec.UserSpecification;
 import org.springframework.data.jpa.domain.Specification;

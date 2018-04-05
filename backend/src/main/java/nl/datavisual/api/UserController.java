@@ -1,6 +1,5 @@
 package nl.datavisual.api;
 
-import nl.datavisual.dto.CompanyDTO;
 import nl.datavisual.dto.User;
 import nl.datavisual.service.CompanyService;
 import nl.datavisual.service.UserService;
@@ -12,23 +11,18 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
-@RequestMapping({"/api"})
 public class UserController {
     Logger log = LoggerFactory.getLogger(UserController.class);
 
     private UserService userService;
     private CompanyService companyService;
 
+
     public UserController(UserService userService, CompanyService companyService) {
         this.userService = userService;
         this.companyService = companyService;
     }
 
-    @GetMapping(path = "/allcompanies")
-    public List<CompanyDTO> getAllCompanies() {
-        log.debug("Get all companies");
-        return companyService.getAllCompanies();
-    }
 
     @GetMapping(path = "/search")
     public List<User> searchUser(@RequestParam(required = false) Integer companyId,
@@ -40,6 +34,7 @@ public class UserController {
 
         return userService.searchUser(companyId, roleId, email, name, username, statusCode);
     }
+
 
     @PostMapping
     public User create(@RequestBody User user) {

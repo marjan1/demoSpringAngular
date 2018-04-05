@@ -1,7 +1,7 @@
 package nl.datavisual.service;
 
 import nl.datavisual.dto.CompanyDTO;
-import nl.datavisual.repo.CompanyRepository;
+import nl.datavisual.domain.repo.CompanyRepository;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
