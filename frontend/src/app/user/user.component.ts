@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
-import { User } from '../models/user.model';
-import { UserService } from '../service/user.service';
+import {User} from '../models/user.model';
+import {UserService} from '../service/user.service';
 
-import { CompanyDTO } from '../models/company.model';
-import { CompanyService } from '../service/company.service';
+import {CompanyDTO} from '../models/company.model';
+import {CompanyService} from '../service/company.service';
 
 
 @Component({
@@ -25,20 +25,20 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getUsers()
-      .subscribe( data => {
+      .subscribe(data => {
         this.users = <User[]> data;
       });
     this.companyService.getCompanies()
-      .subscribe(data =>{
+      .subscribe(data => {
         this.companies = <CompanyDTO[]> data;
       });
-  };
+  }
 
   deleteUser(user: User): void {
     this.userService.deleteUser(user)
-      .subscribe( data => {
+      .subscribe(data => {
         this.users = this.users.filter(u => u !== user);
-      })
-  };
+      });
+  }
 
 }

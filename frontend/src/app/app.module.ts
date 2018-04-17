@@ -9,12 +9,14 @@ import { AppRoutingModule } from './app.routing.module';
 import {UserService} from './service/user.service';
 import {CompanyService} from './service/company.service';
 import {HttpClientModule} from '@angular/common/http/';
+import { CompanyComponent } from './company/company.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    AddUserComponent
+    AddUserComponent,
+    CompanyComponent
   ],
   imports: [
     BrowserModule,

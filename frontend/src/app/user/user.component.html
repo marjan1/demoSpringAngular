@@ -1,11 +1,10 @@
-
 <div class="col-md-6">
   <h2> User Details</h2>
 
 
   <div class="dropdown">
     <select>
-      <option *ngFor="let company of companies" value= {{company.idCompanies}}>
+      <option *ngFor="let company of companies" value={{company.idCompanies}}>
         {{company.companyName}}
       </option>
     </select>
@@ -13,17 +12,16 @@
   <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Company
       <span class="caret"></span></button>
-    <ul class="dropdown-menu" >
+    <ul class="dropdown-menu">
       <li *ngFor="let company of companies">
-        <a href={{company.idCompanies}} >
-        {{company.companyName}}
+        <a href={{company.idCompanies}}>
+          {{company.companyName}}
         </a>
       </li>
 
       <li><a href="#">JavaScript</a></li>
     </ul>
   </div>
-
 
 
   <table class="table table-striped">
@@ -42,7 +40,9 @@
       <td>{{user.name}}</td>
       <td>{{user.username}}</td>
       <td>{{user.email}}</td>
-      <td><button class="btn btn-danger" (click)="deleteUser(user)"> Delete User</button></td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteUser(user)"> Delete User</button>
+      </td>
     </tr>
     </tbody>
   </table>

@@ -6,5 +6,5 @@ export class CompanyDTO {
   expirationDate: string;
   numberOfUsers: number;
   phone: string;
-  statusCode:number;
+  statusCode: number;
 }
